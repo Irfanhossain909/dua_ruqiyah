@@ -44,7 +44,6 @@ dependencies:
   geolocator: ^11.0.0
   geocoding: ^2.1.1
   shared_preferences: ^2.2.3
-  awesome_notifications: ^0.9.2
   intl: ^0.19.0
   responsive_sizer: ^3.3.0+1
 
