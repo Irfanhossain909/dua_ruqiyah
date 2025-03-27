@@ -1,0 +1,56 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Flutter Functional Guidelines
+
+## 1. State Management and Architecture
+- Use GetX for state management and dependency injection
+- Implement base presenter pattern using GetxController for UI logic
+- Create UI state classes that extend Equatable for proper state comparison
+- Follow clean architecture with separation of presentation, domain, and core layers
+- Use reactive programming with Rx variables for state observation
+
+## 2. Error Handling
+- Use Either pattern from fpdart for consistent error handling
+- Implement BasePresenter methods for standardized error processing
+- Create utility functions for handling stream events
+- Add user message functionality for showing errors and notifications
+- Implement loading state toggles for async operations
+
+## 3. Navigation
+- Use GetX navigation for consistent routing across the app
+- Maintain a global navigator key for accessing context anywhere
+- Initialize screen utilities early in the widget tree
+- Implement proper page transitions and named routes
+
+## 4. Base Classes
+- Extend BasePresenter for all controller/presenter classes
+- Create BaseUiState for all UI state representations
+- Use Result type alias (Either<String, T>) for consistent return types
+- Implement extension methods to add functionality to existing classes
+
+## 5. Dependency Injection
+- Use Get.put() to register controllers/presenters
+- Create loadPresenter and unloadPresenter utility functions
+- Manage the lifecycle of controllers properly
+- Implement proper dependency resolution order
+
+## 6. Utility Functions
+- Create helper methods for common operations
+- Implement task execution with loading state management
+- Use extension methods for common functionality
+- Add logging utilities for debugging and error tracking
+
+## 7. Reactive Programming
+- Use Rx variables for reactive state management
+- Implement proper stream management with subscription handling
+- Cancel subscriptions when controllers are disposed
+- Use reactive UI updates with GetX's Obx widget
+
+## 8. Code Organization
+- Follow consistent naming conventions
+- Add proper documentation with examples and rationale
+- Organize code by feature rather than by type
+- Separate business logic from UI components 

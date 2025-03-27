@@ -1,0 +1,62 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Flutter UI Design Guidelines
+
+## 1. Project Structure
+- Organize code using feature-based architecture
+- Separate presentation, core, and domain layers
+- Follow clean architecture principles with clear separation of concerns
+
+## 2. Responsive Design
+- Use the `responsive_sizer` package for device-aware responsive sizing
+- Initialize screen dimensions in the root widget
+- Implement a custom screen utility class similar to `SalatWaqtScreen`
+- Use percentage-based sizing for responsive layouts
+
+## 3. Text Styles
+- Create a centralized `AppTextStyles` class for all text styles
+- Define base styles with consistent font families, sizes, and weights
+- Implement reusable text style methods with customizable parameters
+- Use semantic naming for text styles based on their usage
+
+## 4. Screen Size Management
+- Create a utility class to manage screen dimensions
+- Initialize screen dimensions early in the widget tree
+- Implement extension methods for percentage-based sizing
+- Use pixel-based sizing utilities for consistent spacing
+
+## 5. State Management
+- Implement GetX for state management and dependency injection
+- Create base presenter classes that extend GetxController
+- Define UI state classes that extend Equatable for proper state comparison
+- Use reactive programming with Rx variables
+
+## 6. Error Handling
+- Implement Either pattern using fpdart for consistent error handling
+- Create utility functions for handling stream events
+- Add user message functionality to show errors and notifications
+- Implement loading state management
+
+## 7. Navigation
+- Use GetX navigation for consistent routing
+- Maintain a global navigator key for accessing context
+- Implement proper navigation patterns (named routes or page transitions)
+
+## 8. Styling Constants
+- Create reusable sizing constants for consistent spacing
+- Define extension methods for common dimensions
+- Implement pixel-based sizing utilities for fine-grained control
+
+## 9. Performance Considerations
+- Validate screen dimensions to prevent layout issues
+- Implement proper widget lifecycle management
+- Use proper error logging for debugging
+
+## 10. Code Organization
+- Follow consistent naming conventions
+- Add proper documentation with examples and rationale
+- Implement base classes for common functionality
+- Use extension methods for adding functionality to existing classes 
