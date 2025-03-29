@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../presenter/home_presenter.dart';
 import '../presenter/home_ui_state.dart';
 import '../../booksection/ui/booksection_screen.dart';
+import '../../selfruqiyah/ui/selfruqiyah_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -92,7 +93,7 @@ class HomePage extends StatelessWidget {
                         'Self Ruqyah',
                         const Color(0xFF8BC34A),
                         Colors.green[100]!,
-                        null,
+                        () => Get.toNamed('/selfruqiyah'),
                       ),
                       _buildCircularIconButton(
                         Icons.menu_book,
