@@ -1,5 +1,6 @@
 import 'package:get_it/get_it.dart';
 import '../../presentation/home/presenter/home_presenter.dart';
+import '../../presentation/bookmark/presenter/bookmark_presenter.dart';
 
 /// Global ServiceLocator instance
 final GetIt serviceLocator = GetIt.instance;
@@ -15,19 +16,19 @@ T locator<T extends Object>() => serviceLocator<T>();
 Future<void> setupDependencies() async {
   // External Services
   _setupExternalServices();
-  
+
   // Core Services
   _setupCoreServices();
-  
+
   // Data Sources
   _setupDataSources();
-  
+
   // Repositories
   _setupRepositories();
-  
+
   // Use Cases
   _setupUseCases();
-  
+
   // Presenters
   _setupPresenters();
 }
@@ -60,9 +61,10 @@ void _setupUseCases() {
 void _setupPresenters() {
   // Register presenters
   serviceLocator.registerFactory<HomePresenter>(() => HomePresenter());
+  serviceLocator.registerFactory<BookmarkPresenter>(() => BookmarkPresenter());
 }
 
 /// Reset all dependencies (useful for testing)
 void resetDependencies() {
   serviceLocator.reset();
-} 
+}
