@@ -1,6 +1,7 @@
 import 'package:get_it/get_it.dart';
 import '../../presentation/home/presenter/home_presenter.dart';
 import '../../presentation/bookmark/presenter/bookmark_presenter.dart';
+import '../../presentation/booksection/presenter/booksection_presenter.dart';
 
 /// Global ServiceLocator instance
 final GetIt serviceLocator = GetIt.instance;
@@ -62,6 +63,9 @@ void _setupPresenters() {
   // Register presenters
   serviceLocator.registerFactory<HomePresenter>(() => HomePresenter());
   serviceLocator.registerFactory<BookmarkPresenter>(() => BookmarkPresenter());
+  serviceLocator.registerFactory<BookSectionPresenter>(
+    () => BookSectionPresenter(),
+  );
 }
 
 /// Reset all dependencies (useful for testing)

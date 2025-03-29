@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../presenter/home_presenter.dart';
 import '../presenter/home_ui_state.dart';
+import '../../booksection/ui/booksection_screen.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -77,24 +78,33 @@ class HomePage extends StatelessWidget {
                         'Last Read',
                         Colors.blue,
                         Colors.blue[100]!,
+                        null,
                       ),
                       _buildCircularIconButton(
                         Icons.emoji_events,
                         'Challenges',
                         Colors.amber,
                         Colors.amber[100]!,
+                        null,
                       ),
                       _buildCircularIconButton(
                         Icons.eco,
                         'Self Ruqyah',
                         const Color(0xFF8BC34A),
                         Colors.green[100]!,
+                        null,
                       ),
                       _buildCircularIconButton(
                         Icons.menu_book,
                         'Dua\'s Books',
                         Colors.red,
                         Colors.red[100]!,
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const BookSectionScreen(),
+                          ),
+                        ),
                       ),
                     ]),
                     const SizedBox(height: 16),
@@ -106,24 +116,28 @@ class HomePage extends StatelessWidget {
                         'Dhikr',
                         const Color(0xFF8BC34A),
                         Colors.green[50]!,
+                        null,
                       ), // Lighter green
                       _buildCircularIconButton(
                         Icons.access_time,
                         'Prayer Time',
                         Colors.purple,
                         Colors.purple[100]!,
+                        null,
                       ),
                       _buildCircularIconButton(
                         Icons.apps,
                         'Other Apps',
                         Colors.blue,
                         Colors.blue[100]!,
+                        null,
                       ),
                       _buildCircularIconButton(
                         Icons.favorite,
                         'Support Us',
                         Colors.red,
                         Colors.red[100]!,
+                        null,
                       ),
                     ]),
                     const SizedBox(height: 16),
@@ -444,19 +458,23 @@ class HomePage extends StatelessWidget {
     IconData icon,
     String label,
     Color iconColor,
-    Color bgColor,
-  ) {
-    return Column(
-      children: [
-        Container(
-          width: 48,
-          height: 48,
-          decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
-          child: Icon(icon, color: iconColor),
-        ),
-        const SizedBox(height: 4),
-        Text(label, style: const TextStyle(fontSize: 10, color: Colors.grey)),
-      ],
+    Color bgColor, [
+    VoidCallback? onTap,
+  ]) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Column(
+        children: [
+          Container(
+            width: 48,
+            height: 48,
+            decoration: BoxDecoration(color: bgColor, shape: BoxShape.circle),
+            child: Icon(icon, color: iconColor),
+          ),
+          const SizedBox(height: 4),
+          Text(label, style: const TextStyle(fontSize: 10, color: Colors.grey)),
+        ],
+      ),
     );
   }
 
