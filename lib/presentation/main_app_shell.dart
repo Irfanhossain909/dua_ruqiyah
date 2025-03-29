@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'home/ui/home_page.dart';
 import 'bookmark/ui/bookmark_screen.dart';
 import 'memorization/ui/memorization_screen.dart';
+import 'schedule/ui/schedule_screen.dart';
 
 class MainAppShell extends StatefulWidget {
   const MainAppShell({super.key});
@@ -17,7 +18,7 @@ class _MainAppShellState extends State<MainAppShell> {
     const HomePage(),
     const Placeholder(), // All Duas (placeholder)
     const BookmarkScreen(),
-    const Placeholder(), // Schedule (placeholder)
+    const ScheduleScreen(),
     const MemorizationScreen(),
   ];
 
