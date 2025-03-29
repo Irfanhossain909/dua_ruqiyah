@@ -2,6 +2,7 @@ import 'package:dua_ruqiyah/presentation/home/ui/home_page.dart';
 import 'package:dua_ruqiyah/presentation/main_app_shell.dart';
 import 'package:dua_ruqiyah/presentation/memorization/ui/memorization_screen.dart';
 import 'package:dua_ruqiyah/presentation/bookmark/ui/bookmark_screen.dart';
+import 'package:dua_ruqiyah/presentation/alldua/ui/all_dua_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
@@ -38,6 +39,7 @@ class DuaAndRuqyahApp extends StatelessWidget {
               name: '/memorization',
               page: () => const MemorizationScreen(),
             ),
+            GetPage(name: '/alldua', page: () => const AllDuaScreen()),
           ],
           debugShowCheckedModeBanner: false,
         );

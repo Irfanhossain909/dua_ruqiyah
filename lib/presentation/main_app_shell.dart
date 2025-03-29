@@ -3,6 +3,7 @@ import 'home/ui/home_page.dart';
 import 'bookmark/ui/bookmark_screen.dart';
 import 'memorization/ui/memorization_screen.dart';
 import 'schedule/ui/schedule_screen.dart';
+import 'alldua/ui/all_dua_screen.dart';
 
 class MainAppShell extends StatefulWidget {
   const MainAppShell({super.key});
@@ -16,7 +17,7 @@ class _MainAppShellState extends State<MainAppShell> {
 
   final List<Widget> _screens = [
     const HomePage(),
-    const Placeholder(), // All Duas (placeholder)
+    const AllDuaScreen(),
     const BookmarkScreen(),
     const ScheduleScreen(),
     const MemorizationScreen(),
