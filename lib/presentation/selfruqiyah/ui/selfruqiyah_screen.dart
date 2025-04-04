@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 // Model for video items
 class VideoItem {
@@ -19,7 +18,7 @@ class VideoItem {
 }
 
 class SelfRuqiyahScreen extends StatefulWidget {
-  const SelfRuqiyahScreen({Key? key}) : super(key: key);
+  const SelfRuqiyahScreen({super.key});
 
   @override
   State<SelfRuqiyahScreen> createState() => _SelfRuqiyahScreenState();

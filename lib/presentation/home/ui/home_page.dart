@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import '../presenter/home_presenter.dart';
 import '../presenter/home_ui_state.dart';
 import '../../booksection/ui/booksection_screen.dart';
-import '../../selfruqiyah/ui/selfruqiyah_screen.dart';
+import '../../prayer_time/ui/prayer_time.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -124,7 +124,12 @@ class HomePage extends StatelessWidget {
                         'Prayer Time',
                         Colors.purple,
                         Colors.purple[100]!,
-                        null,
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PrayerTimeScreen(),
+                          ),
+                        ),
                       ),
                       _buildCircularIconButton(
                         Icons.apps,
@@ -271,120 +276,126 @@ class HomePage extends StatelessWidget {
   }
 
   Widget _buildPrayerTimeCard(HomeUiState state) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [Color(0xFFF5FFF3), Color(0xFFE1F5D8)],
+    return GestureDetector(
+      onTap: () => Get.to(() => const PrayerTimeScreen()),
+      child: Container(
+        padding: const EdgeInsets.all(16),
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+            colors: [Color(0xFFF5FFF3), Color(0xFFE1F5D8)],
+          ),
+          borderRadius: BorderRadius.circular(20),
         ),
-        borderRadius: BorderRadius.circular(20),
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text('Dhuhr', style: state.prayerNameTextStyle),
-          const SizedBox(height: 4),
-          Row(
-            children: [
-              Text('12:27', style: state.timeTextStyle),
-              const SizedBox(width: 4),
-              Text('PM', style: state.smallTimeTextStyle),
-              const SizedBox(width: 8),
-              Text(
-                'to 3:54pm',
-                style: TextStyle(fontSize: 12, color: Colors.grey[500]),
-              ),
-            ],
-          ),
-          const SizedBox(height: 8),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(8),
-            child: LinearProgressIndicator(
-              value: 0.45,
-              backgroundColor: Colors.grey[200],
-              valueColor: const AlwaysStoppedAnimation<Color>(
-                Color(0xFF8BC34A),
-              ), // Lighter Green
-              minHeight: 3, // Make it thinner
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Dhuhr', style: state.prayerNameTextStyle),
+            const SizedBox(height: 4),
+            Row(
+              children: [
+                Text('12:27', style: state.timeTextStyle),
+                const SizedBox(width: 4),
+                Text('PM', style: state.smallTimeTextStyle),
+                const SizedBox(width: 8),
+                Text(
+                  'to 3:54pm',
+                  style: TextStyle(fontSize: 12, color: Colors.grey[500]),
+                ),
+              ],
             ),
-          ),
-          const SizedBox(height: 4),
-          Text('Remaining: 00:50:00 mins', style: state.remainingTimeTextStyle),
-          const SizedBox(height: 16),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      shape: BoxShape.circle,
-                    ),
-                    child: const Icon(
-                      Icons.nights_stay,
-                      color: Colors.grey,
-                      size: 16,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Magrib',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Text(
-                        'Start - 3:54pm',
-                        style: TextStyle(fontSize: 10, color: Colors.grey),
-                      ),
-                    ],
-                  ),
-                ],
+            const SizedBox(height: 8),
+            ClipRRect(
+              borderRadius: BorderRadius.circular(8),
+              child: LinearProgressIndicator(
+                value: 0.45,
+                backgroundColor: Colors.grey[200],
+                valueColor: const AlwaysStoppedAnimation<Color>(
+                  Color(0xFF8BC34A),
+                ), // Lighter Green
+                minHeight: 3, // Make it thinner
               ),
-              Row(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(8),
-                    decoration: BoxDecoration(
-                      color: Colors.grey[200],
-                      shape: BoxShape.circle,
+            ),
+            const SizedBox(height: 4),
+            Text(
+              'Remaining: 00:50:00 mins',
+              style: state.remainingTimeTextStyle,
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        shape: BoxShape.circle,
+                      ),
+                      child: const Icon(
+                        Icons.nights_stay,
+                        color: Colors.grey,
+                        size: 16,
+                      ),
                     ),
-                    child: const Icon(
-                      Icons.calendar_today,
-                      color: Colors.grey,
-                      size: 16,
-                    ),
-                  ),
-                  const SizedBox(width: 8),
-                  const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Dhul-Hijjah 26, 1445 AH',
-                        style: TextStyle(
-                          fontSize: 10,
-                          fontWeight: FontWeight.w500,
+                    const SizedBox(width: 8),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Magrib',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                          ),
                         ),
+                        Text(
+                          'Start - 3:54pm',
+                          style: TextStyle(fontSize: 10, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+                Row(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(8),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        shape: BoxShape.circle,
                       ),
-                      Text(
-                        'Tuesday, July 2, 2024',
-                        style: TextStyle(fontSize: 10, color: Colors.grey),
+                      child: const Icon(
+                        Icons.calendar_today,
+                        color: Colors.grey,
+                        size: 16,
                       ),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ],
+                    ),
+                    const SizedBox(width: 8),
+                    const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Dhul-Hijjah 26, 1445 AH',
+                          style: TextStyle(
+                            fontSize: 10,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                        Text(
+                          'Tuesday, July 2, 2024',
+                          style: TextStyle(fontSize: 10, color: Colors.grey),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

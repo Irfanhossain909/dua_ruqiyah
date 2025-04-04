@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../presenter/bookmark_presenter.dart';
 import '../presenter/bookmark_ui_state.dart';

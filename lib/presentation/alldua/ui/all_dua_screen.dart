@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import '../presenter/alldua_presenter.dart';
-import '../presenter/alldua_ui_state.dart';
 
 class AllDuaScreen extends StatefulWidget {
-  const AllDuaScreen({Key? key}) : super(key: key);
+  const AllDuaScreen({super.key});
 
   @override
   State<AllDuaScreen> createState() => _AllDuaScreenState();

@@ -8,7 +8,6 @@ final GetIt serviceLocator = GetIt.instance;
 
 /// Shorthand function to get an instance from the service locator
 ///
-/// Example: final logger = locator<LoggerService>();
 T locator<T extends Object>() => serviceLocator<T>();
 
 /// Setup all dependencies for the application
@@ -35,27 +34,22 @@ Future<void> setupDependencies() async {
 }
 
 void _setupExternalServices() {
-  // TODO: Register external services like SharedPreferences, Dio, etc.
   // Example: serviceLocator.registerLazySingleton(() => SharedPreferences.getInstance());
 }
 
 void _setupCoreServices() {
-  // TODO: Register core services like LoggerService, NetworkService, etc.
   // Example: serviceLocator.registerLazySingleton<LoggerService>(() => LoggerServiceImpl());
 }
 
 void _setupDataSources() {
-  // TODO: Register data sources
   // Example: serviceLocator.registerLazySingleton<LocationDataSource>(() => LocationDataSourceImpl(serviceLocator()));
 }
 
 void _setupRepositories() {
-  // TODO: Register repositories
   // Example: serviceLocator.registerLazySingleton<LocationRepository>(() => LocationRepositoryImpl(serviceLocator()));
 }
 
 void _setupUseCases() {
-  // TODO: Register use cases
   // Example: serviceLocator.registerLazySingleton(() => GetCurrentLocationUseCase(serviceLocator()));
 }
 
