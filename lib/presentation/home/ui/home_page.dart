@@ -1,3 +1,4 @@
+import 'package:dua_ruqiyah/presentation/screens/dhikr_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../presenter/home_presenter.dart';
@@ -117,7 +118,12 @@ class HomePage extends StatelessWidget {
                         'Dhikr',
                         const Color(0xFF8BC34A),
                         Colors.green[50]!,
-                        null,
+                        () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) =>  DhikrScreen(),
+                          ),
+                        ),
                       ), // Lighter green
                       _buildCircularIconButton(
                         Icons.access_time,

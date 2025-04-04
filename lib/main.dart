@@ -5,13 +5,22 @@ import 'package:dua_ruqiyah/presentation/bookmark/ui/bookmark_screen.dart';
 import 'package:dua_ruqiyah/presentation/alldua/ui/all_dua_screen.dart';
 import 'package:dua_ruqiyah/presentation/selfruqiyah/ui/selfruqiyah_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:get/get.dart';
 import 'core/di/service_locator.dart';
+import 'core/theme/app_theme.dart';
+import 'presentation/screens/dhikr_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await setupDependencies();
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
   runApp(const DuaAndRuqyahApp());
 }
 
@@ -24,13 +33,7 @@ class DuaAndRuqyahApp extends StatelessWidget {
       builder: (context, orientation, screenType) {
         return GetMaterialApp(
           title: 'Dua & Ruqyah App',
-          theme: ThemeData(
-            fontFamily: 'Roboto', // Replace with your desired font
-            colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color(0xFF457363),
-            ), // Green matching the memorization screen
-            useMaterial3: true,
-          ),
+          theme: AppTheme.light,
           home: const MainAppShell(),
           getPages: [
             GetPage(name: '/', page: () => const MainAppShell()),
