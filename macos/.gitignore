@@ -5,3 +5,9 @@
 # Xcode-related
 **/dgph
 **/xcuserdata/
+
+
+# .env protection restored by security cleanup
+.env
+.env.*
+.env.local
