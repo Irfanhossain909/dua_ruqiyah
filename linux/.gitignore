@@ -1,1 +1,7 @@
 flutter/ephemeral
+
+
+# .env protection restored by security cleanup
+.env
+.env.*
+.env.local
